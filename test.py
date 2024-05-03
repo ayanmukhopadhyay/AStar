@@ -29,8 +29,12 @@ def astar_path(grid, start, end):
     if result != -1 and path_length_ptr[0] > 0:
         path_length = path_length_ptr[0]
         path_array = np.frombuffer(ffi.buffer(path_out_ptr[0], path_length * 2 * ffi.sizeof("int")), dtype=np.int32)
+        print(f"Path array: {path_array}")
+        print(f"Path length: {path_length}")
         path = path_array.reshape(path_length, 2)
+        print(f"Path1: {path}")
         C.free(path_out_ptr[0])  # Corrected memory free call
+        print(f"Path2: {path}")
         return path.tolist(), result
     else:
         return None, result

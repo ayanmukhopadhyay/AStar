@@ -30,7 +30,7 @@ Node* create_node(int x, int y, int g, int h, Node* parent) {
     return new_node;
 }
 
-int astar_search(const int *grid, int n, int start_x, int start_y, int end_x, int end_y, int **path_out, int *path_length) {
+int astar_search_path(const int *grid, int n, int start_x, int start_y, int end_x, int end_y, int **path_out, int *path_length) {
     Node **open_set = malloc(n * n * sizeof(Node *));
     int open_set_size = 0;
     int *closed_set = calloc(n * n, sizeof(int));  // Closed set to mark visited nodes
